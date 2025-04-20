@@ -21,28 +21,26 @@
         url('Artboard 1-min.png') no-repeat center center;
       background-size: cover;
       background-blend-mode: overlay;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
-    .button-container {
-      text-align: center;
+    .top-right-button {
+      position: absolute;
+      top: 20px;
+      right: 30px;
     }
 
-    .button-container a {
-      display: inline-block;
-      padding: 14px 32px;
+    .top-right-button a {
+      padding: 12px 24px;
       background-color: #ffffff;
       color: #1a1a1a;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1rem;
-      border-radius: 8px;
-      transition: all 0.3s ease;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      transition: 0.3s ease;
     }
 
-    .button-container a:hover {
+    .top-right-button a:hover {
       background-color: #1a1a1a;
       color: #ffffff;
     }
@@ -50,8 +48,8 @@
 </head>
 <body>
   <div class="hero">
-    <div class="button-container">
-      <a href="about.html">Enter</a> <!-- Change 'about.html' to any link you want -->
+    <div class="top-right-button">
+      <a href="about.html">Enter</a>
     </div>
   </div>
 </body>
