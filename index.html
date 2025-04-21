@@ -23,33 +23,88 @@
       background-blend-mode: overlay;
     }
 
-    .top-right-button {
+    .header {
       position: absolute;
       top: 20px;
+      left: 30px;
       right: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .top-right-button a {
+    .logo {
+      height: 50px;
+      width: auto;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-btn {
       padding: 12px 24px;
       background-color: #ffffff;
       color: #1a1a1a;
-      text-decoration: none;
       font-weight: bold;
+      border: none;
       border-radius: 6px;
       font-size: 0.9rem;
+      cursor: pointer;
       transition: 0.3s ease;
     }
 
-    .top-right-button a:hover {
+    .dropdown-btn:hover {
       background-color: #1a1a1a;
       color: #ffffff;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #ffffff;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      border-radius: 6px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: #1a1a1a;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
   </style>
 </head>
 <body>
   <div class="hero">
-    <div class="top-right-button">
-      <a href="about.html">Enter</a>
+    <div class="header">
+      
+      <!-- Top Left Logo -->
+      <img src="your-logo.png" alt="The Root Theory Logo" class="logo">
+
+      <!-- Top Right Dropdown -->
+      <div class="dropdown">
+        <button class="dropdown-btn">Menu</button>
+        <div class="dropdown-content">
+          <a href="#">Products</a>
+          <a href="#">About Us</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </body>
