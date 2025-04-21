@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Root Theory</title>
   <style>
     * {
@@ -11,17 +11,15 @@
       box-sizing: border-box;
     }
 
-    html, body {
+    body, html {
       height: 100%;
       font-family: 'Arial', sans-serif;
     }
 
     .video-background {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       object-fit: cover;
       z-index: -1;
     }
@@ -36,6 +34,7 @@
       width: 30px;
       height: 22px;
       cursor: pointer;
+      z-index: 11;
     }
 
     .menu-icon span {
@@ -45,19 +44,59 @@
       border-radius: 2px;
     }
 
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      transition: left 0.3s ease;
+      z-index: 10;
+    }
+
+    .side-menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .side-menu.open {
+      left: 0;
+    }
+
     .center-text {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      display: flex;
+      gap: 15px;
       color: white;
-      text-align: center;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+      font-size: 3rem;
+      letter-spacing: 2px;
+      font-weight: bold;
+      z-index: 1;
     }
 
-    .center-text h1 {
-      font-size: 3rem;
-      letter-spacing: 3px;
+    .word {
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .word:nth-child(1) { animation-delay: 0.5s; }
+    .word:nth-child(2) { animation-delay: 1.5s; }
+    .word:nth-child(3) { animation-delay: 2.5s; }
+
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(20px); }
     }
   </style>
 </head>
@@ -65,21 +104,53 @@
 
   <!-- Background Video -->
   <video class="video-background" autoplay muted loop>
-    <source src="RootTheory.mp4" type="video/mp4" />
+    <source src="your-video.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 
-  <!-- Menu Icon (3 lines) -->
-  <div class="menu-icon">
-    <span>Products</span>
-    <span>About</span>
-    <span>Contact</span>
+  <!-- Hamburger Menu Icon -->
+  <div class="menu-icon" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
 
-  <!-- Centered Title (optional) -->
-  <div class="center-text">
-    <h1>The Root Theory</h1>
+  <!-- Slide-in Side Menu -->
+  <div class="side-menu" id="sideMenu">
+    <a href="#products">Products</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact Us</a>
   </div>
+
+  <!-- Animated Title -->
+  <div class="center-text">
+    <div class="word">The</div>
+    <div class="word">Root</div>
+    <div class="word">Theory</div>
+  </div>
+
+  <!-- Sections -->
+  <div id="products" style="margin-top: 100vh; padding: 40px; background-color: #f4f4f4;">
+    <h2>Our Products</h2>
+    <p>We create small-batch, natural bath and beauty products inspired by nature, designed for everyday rituals and rooted in wellness.</p>
+  </div>
+
+  <div id="about" style="padding: 40px; background-color: #fff;">
+    <h2>About Us</h2>
+    <p>The Root Theory is a wellness-inspired brand that believes self-care begins with simplicity. From plant-powered ingredients to sustainable packaging, everything we do is designed to reconnect you to what truly matters — yourself and the earth beneath your feet.</p>
+  </div>
+
+  <div id="contact" style="padding: 40px; background-color: #f4f4f4;">
+    <h2>Contact Us</h2>
+    <p>We are currently based in Chennai, India. For inquiries, reach out to us at <strong>contact@theroottheory.com</strong>.</p>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('sideMenu').classList.toggle('open');
+    }
+  </script>
 
 </body>
 </html>
+
