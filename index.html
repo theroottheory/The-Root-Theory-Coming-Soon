@@ -1,143 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Root Theory</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-
-    body, html {
-      height: 100%;
-      font-family: 'Arial', sans-serif;
-    }
-
-    .video-background {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
-
-    .menu-icon {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 30px;
-      height: 22px;
-      cursor: pointer;
-      z-index: 11;
-    }
-
-    .menu-icon span {
-      display: block;
-      height: 4px;
-      background-color: white;
-      border-radius: 2px;
-    }
-
-    .side-menu {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      width: 250px;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.85);
-      padding: 60px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      transition: left 0.3s ease;
-      z-index: 10;
-    }
-
-    .side-menu a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.3rem;
-      font-weight: bold;
-    }
-
-    .side-menu.open {
-      left: 0;
-    }
-
-    .center-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      display: flex;
-      gap: 15px;
-      color: white;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
-      font-size: 3rem;
-      letter-spacing: 2px;
-      font-weight: bold;
-      z-index: 1;
-    }
-
-    .word {
-      opacity: 0;
-      animation: fadeIn 1s ease forwards;
-    }
-
-    .word:nth-child(1) { animation-delay: 0.5s; }
-    .word:nth-child(2) { animation-delay: 1.5s; }
-    .word:nth-child(3) { animation-delay: 2.5s; }
-
-    @keyframes fadeIn {
-      to { opacity: 1; transform: translateY(0); }
-      from { opacity: 0; transform: translateY(20px); }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Root Theory | Glow Theory</title>
+<meta name="description" content="Glow Theory Herbal Sanam Bath Powder by The Root Theory. Natural, toxin-free, Ayurvedic-inspired self-care.">
+<style>
+:root{--green:#0f351d;--cream:#fbf8f1;--gold:#c3913f;--muted:#5f5a4f;--shadow:0 18px 45px rgba(0,0,0,.08)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#fffdf8;color:#111;line-height:1.55}
+h1,h2,h3,.logo{font-family:Georgia,'Times New Roman',serif}
+.topbar{background:var(--green);color:white;padding:10px 7%;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:14px}
+.topbar span{margin-right:26px}
+header{background:white;display:flex;justify-content:space-between;align-items:center;padding:22px 7%;box-shadow:0 4px 18px rgba(0,0,0,.04);position:sticky;top:0;z-index:50}
+.logo{font-weight:900;color:var(--green);font-size:28px;line-height:.9;display:flex;align-items:center;gap:10px}
+.logo-icon{font-size:36px}
+nav a{text-decoration:none;color:#111;margin-left:30px;font-weight:700;font-size:15px}
+.icons{display:inline-flex;gap:18px;margin-left:25px;font-size:24px}
+.hero{padding:55px 7% 30px;background:linear-gradient(120deg,#fff,#fbf5ea);display:grid;grid-template-columns:.95fr 1.2fr;align-items:center;gap:35px}
+h1{font-size:62px;line-height:1.05;color:var(--green);margin-bottom:20px}
+.hero p{font-size:18px;max-width:520px;color:#333;margin-bottom:24px}
+.btns{display:flex;gap:14px;margin-bottom:34px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;border-radius:9px;padding:15px 28px;font-weight:900}
+.primary{background:var(--green);color:white;box-shadow:0 10px 25px rgba(15,53,29,.25)}
+.secondary{border:1px solid var(--green);color:var(--green);background:white}
+.hero-icons{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:520px;text-align:center}
+.hero-icons div{font-weight:700;font-size:13px;color:#1f3f28}
+.hero-icons b{display:block;font-size:28px;margin-bottom:6px}
+.hero-img img{width:100%;display:block;object-fit:contain}
+.feature-strip{margin:0 7% 48px;background:white;border:1px solid #eee2cf;border-radius:16px;box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(5,1fr);overflow:hidden}
+.feature-strip div{padding:25px;text-align:center;border-right:1px solid #e7d8bd;font-weight:800;color:#173822}
+.feature-strip div:last-child{border-right:0}
+.feature-strip b{display:block;font-size:29px;margin-bottom:7px}
+section{padding:55px 7%}
+.section-title{text-align:center;margin:0 auto 40px;max-width:780px}
+.section-title h2{color:var(--green);font-size:34px;letter-spacing:.5px}
+.section-title p{color:var(--muted);font-size:16px}
+.ingredients{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+  text-align:center;
+  align-items:start;
+  max-width:1180px;
+  margin:0 auto;
+}
+.ingredient{
+  text-align:center;
+  padding:18px 30px 24px;
+  border-right:1px solid #e2c99f;
+}
+.ingredient:last-child{border-right:0}
+.ingredient img{
+  width:190px;
+  height:190px;
+  object-fit:contain;
+  display:block;
+  margin:0 auto 18px;
+}
+.ingredient h3{
+  font-size:24px;
+  color:var(--green);
+  margin-bottom:4px;
+  letter-spacing:.5px;
+}
+.ingredient small{
+  display:block;
+  font-style:italic;
+  margin-bottom:10px;
+}
+.ingredient p{
+  font-size:15px;
+  line-height:1.55;
+  color:#222;
+  max-width:230px;
+  margin:0 auto;
+}
+.good-use{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.panel{background:#fffaf1;border:1px solid #f0e2cb;border-radius:18px;padding:34px;box-shadow:var(--shadow)}
+.panel h3{color:var(--green);font-size:24px;margin-bottom:20px}
+.benefit-wrap{display:grid;grid-template-columns:1fr 220px;gap:18px;align-items:center}
+.lady{width:100%;border-radius:16px}
+.check{margin:14px 0;color:#333}
+.check::before{content:"✓";color:#b77d2c;border:1px solid #d2a45f;border-radius:50%;padding:1px 5px;margin-right:10px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;text-align:center}
+.step{padding:12px}
+.step .num{width:25px;height:25px;border-radius:50%;background:var(--green);color:white;font-weight:900;margin:0 auto 8px}
+.step b{display:block;margin:8px 0;color:#111}
+.protip{margin-top:20px;background:#fff1dc;border-radius:12px;padding:16px}
+.reviews{background:#fff}
+.review-box{border:1px solid #efe1cb;border-radius:18px;padding:25px;box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.review{background:#fffaf4;border-radius:15px;padding:25px}
+.stars{color:#eba323;font-size:21px;margin-bottom:12px}
+.review strong{display:block;margin-top:15px}
+.footer-features{background:#fff4e5;display:grid;grid-template-columns:repeat(4,1fr);gap:0;text-align:center;padding:25px 7%;border-top:1px solid #ead8bd}
+.footer-features div{border-right:1px solid #dcc8a5;font-weight:800}.footer-features div:last-child{border-right:0}
+footer{background:var(--green);color:white;padding:45px 7% 25px}
+.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1.4fr;gap:50px}
+footer h3{font-size:28px;margin-bottom:15px}
+footer a{display:block;color:white;text-decoration:none;margin:8px 0;opacity:.9}
+.email-box{display:flex;margin-top:15px}
+.email-box input{flex:1;background:#163f23;border:1px solid #7b8d4d;padding:14px;color:white}
+.email-box button{background:#8a9d3c;border:0;color:white;padding:0 18px;font-size:22px}
+.social{margin-top:15px;font-size:24px;letter-spacing:10px}
+.copy{border-top:1px solid rgba(255,255,255,.2);margin-top:35px;padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap}
+.whatsapp{position:fixed;right:22px;bottom:22px;background:#25D366;width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:100}
+.whatsapp svg{width:34px;height:34px;fill:white}
+@media(max-width:900px){
+  header{display:block;text-align:center}nav{margin-top:15px}nav a{display:inline-block;margin:8px}
+  .hero,.good-use,.footer-grid,.benefit-wrap{grid-template-columns:1fr}
+  h1{font-size:42px}.hero-icons,.feature-strip,.ingredients,.steps,.review-box,.footer-features{grid-template-columns:1fr}
+  .feature-strip div,.ingredient,.footer-features div{border-right:0;border-bottom:1px solid #ead8bd}.ingredient img{width:180px;height:180px}
+}
+</style>
 </head>
 <body>
 
-  <!-- Background Video -->
-  <video class="video-background" autoplay muted loop>
-    <source src="products-video.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+<div class="topbar"><div><span>🌿 100% Natural</span><span>🌿 Ayurvedic Wisdom</span><span>🌿 Toxin-Free</span><span>🌿 Small-Batch</span></div><div>🚚 Free shipping on orders above ₹499</div></div>
 
-  <!-- Hamburger Menu Icon -->
-  <div class="menu-icon" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
+<header>
+  <div class="logo"><span class="logo-icon">🌱</span><div>THE ROOT<br>THEORY</div></div>
+  <nav><a href="#home">Home</a><a href="#about">About Us</a><a href="#ingredients">Ingredients</a><a href="#benefits">Benefits</a><a href="#how">How To Use</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a><span class="icons">⌕ 👤</span></nav>
+</header>
+
+<section class="hero" id="home">
+  <div>
+    <h1>Glow Naturally.<br>Rooted in Tradition.</h1>
+    <p><b>Herbal Sanam Bath Powder</b></p>
+    <p>A time-tested blend of herbs for naturally clean, refreshed and glowing skin.</p>
+    <div class="btns"><a class="btn primary" href="https://wa.me/919840531002">SHOP NOW →</a><a class="btn secondary" href="#ingredients">LEARN MORE</a></div>
+    <div class="hero-icons"><div><b>🌿</b>Natural<br>& Toxin-Free</div><div><b>🌱</b>Ayurvedic<br>Wisdom</div><div><b>🌍</b>Earth<br>Friendly</div><div><b>🤲</b>Self-Care<br>Ritual</div></div>
   </div>
+  <div class="hero-img"><img src="product.png" alt="Glow Theory Herbal Sanam Bath Powder"></div>
+</section>
 
-  <!-- Slide-in Side Menu -->
-  <div class="side-menu" id="sideMenu">
-    <a href="products.html">Products</a>
-    <a href="#about">About Us</a>
-    <a href="#contact">Contact Us</a>
+<div class="feature-strip"><div><b>🌿</b>100% Natural<br>& Biodegradable</div><div><b>⚗️</b>No Harmful<br>Chemicals</div><div><b>🛍️</b>Plastic-Free<br>Packaging</div><div><b>🌱</b>Small-Batch,<br>Mindful Production</div><div><b>🌍</b>Kind to Rivers,<br>Skin & Soil</div></div>
+
+<section id="ingredients">
+  <div class="section-title"><h2>🌿 WHAT’S INSIDE GLOW THEORY? 🌿</h2><p>A blend of time-tested herbs known for their skin-loving, detoxifying & calming properties.</p></div>
+  <div class="ingredients">
+    <div class="ingredient"><img src="sanam.png"><h3>SANAM</h3><p>Natural cleanser that gently exfoliates and brightens skin.</p></div>
+    <div class="ingredient"><img src="neem.png"><h3>NEEM</h3><p>Purifies skin, fights acne & soothes irritation.</p></div>
+    <div class="ingredient"><img src="haldi.png"><h3>HALDI</h3><p>Anti-inflammatory & antibacterial. Helps even skin tone.</p></div>
+    <div class="ingredient"><img src="vettiver.png"><h3>VETTIVER</h3><p>Cools the skin, soothes irritation & helps maintain natural glow.</p></div>
   </div>
+</section>
 
-  <!-- Animated Title -->
-  <div class="center-text">
-    <div class="word">The</div>
-    <div class="word">Root</div>
-    <div class="word">Theory</div>
+<section id="benefits">
+  <div class="good-use">
+    <div class="panel">
+      <h3>🌿 GOOD FOR YOU</h3>
+      <div class="benefit-wrap">
+        <div>
+          <div class="check">Deep cleanses without drying</div><div class="check">Removes tan & dead skin</div><div class="check">Helps with body acne & rashes</div><div class="check">Leaves skin soft, smooth & radiant</div><div class="check">Calms the mind & uplifts mood</div><div class="check">Natural cooling effect from Vettiver</div>
+        </div>
+        <img class="lady" src="lady.png" alt="Skin care benefits">
+      </div>
+    </div>
+    <div class="panel" id="how">
+      <h3>🌿 HOW TO USE</h3>
+      <div class="steps"><div class="step"><div class="num">1</div><b>TAKE</b><p>2–3 tbsp of bath powder in a bowl.</p></div><div class="step"><div class="num">2</div><b>MIX</b><p>Add water or milk to make a smooth paste.</p></div><div class="step"><div class="num">3</div><b>APPLY</b><p>Gently massage all over body. Avoid face & eyes.</p></div><div class="step"><div class="num">4</div><b>RINSE</b><p>Rinse off after 5–10 minutes. Pat dry & glow!</p></div></div>
+      <div class="protip">💡 <b>PRO TIP</b> — Use 2–3 times a week for best results. Follow with a natural oil for deep nourishment.</div>
+    </div>
   </div>
+</section>
 
+<section id="reviews" class="reviews">
+  <div class="section-title"><h2>🌿 WHAT OUR ROOT FAMILY SAYS 🌿</h2></div>
+  <div class="review-box"><div class="review"><div class="stars">★★★★★</div><p>My skin feels so clean, refreshed and soft after each use. The natural aroma is so calming!</p><strong>— Priya S.</strong></div><div class="review"><div class="stars">★★★★★</div><p>Perfect for my sensitive skin. No dryness, just a natural healthy glow.</p><strong>— Ananya R.</strong></div><div class="review"><div class="stars">★★★★★</div><p>Love the cooling effect of vettiver. It makes my bath experience so relaxing and refreshing.</p><strong>— Meera K.</strong></div></div>
+</section>
 
+<div class="footer-features"><div>🛡️ Secure Payments</div><div>🚚 Free Shipping above ₹499</div><div>🌱 Small-Batch Quality</div><div>❤️ Made with love in India</div></div>
 
-  <script>
-    function toggleMenu() {
-      document.getElementById('sideMenu').classList.toggle('open');
-    }
-  </script>
+<footer id="contact">
+  <div class="footer-grid">
+    <div><h3>THE ROOT<br>THEORY</h3><p>Rooted in nature,<br>backed by tradition,<br>made for you.</p><div class="social">◎ f ☎</div></div>
+    <div><h4>ABOUT</h4><a href="#about">Our Story</a><a href="#ingredients">Ingredients</a><a href="#benefits">Benefits</a><a href="#how">How To Use</a><a href="#reviews">Reviews</a><a href="#contact">Contact Us</a></div>
+    <div><h4>STAY CONNECTED</h4><p>Join our community for wellness tips, offers & updates.</p><div class="email-box"><input placeholder="Enter your email"><button>→</button></div><p style="margin-top:18px;">WhatsApp: +91 98405 31002<br>Email: theroottheory3@gmail.com</p></div>
+  </div>
+  <div class="copy"><span>© 2025 The Root Theory. All rights reserved.</span><span>Back to your roots. 🌿</span></div>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/919840531002" aria-label="WhatsApp"><svg viewBox="0 0 32 32"><path d="M16.04 3.2c-7.05 0-12.8 5.67-12.8 12.65 0 2.23.6 4.4 1.72 6.32L3.2 28.8l6.8-1.77a12.9 12.9 0 0 0 6.04 1.5c7.05 0 12.8-5.67 12.8-12.65S23.09 3.2 16.04 3.2Zm0 22.9c-1.92 0-3.8-.52-5.43-1.5l-.39-.23-4.03 1.05 1.08-3.88-.26-.4a10.2 10.2 0 0 1-1.58-5.3c0-5.64 4.75-10.23 10.6-10.23 5.84 0 10.6 4.59 10.6 10.23S21.88 26.1 16.04 26.1Zm5.82-7.66c-.32-.16-1.9-.92-2.2-1.03-.3-.11-.52-.16-.74.16-.22.32-.85 1.03-1.04 1.24-.19.21-.38.24-.7.08-.32-.16-1.36-.49-2.6-1.56-.96-.84-1.6-1.88-1.8-2.2-.19-.32-.02-.49.14-.65.15-.14.32-.37.48-.56.16-.19.22-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.74-1.75-1.01-2.4-.27-.63-.54-.54-.74-.55h-.63c-.22 0-.56.08-.86.4-.3.32-1.13 1.08-1.13 2.64s1.16 3.06 1.32 3.27c.16.21 2.28 3.42 5.53 4.8.77.33 1.38.53 1.85.68.78.24 1.49.21 2.05.13.63-.09 1.9-.76 2.17-1.5.27-.74.27-1.38.19-1.5-.08-.13-.3-.21-.62-.37Z"/></svg></a>
 
 </body>
 </html>
-
